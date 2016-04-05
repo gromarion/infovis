@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resource :people do
+  resources :people do
     member do
       get :person
     end
