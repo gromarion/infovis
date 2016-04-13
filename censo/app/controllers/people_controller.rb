@@ -1,5 +1,4 @@
 class PeopleController < ApplicationController
-
   def index
     @people = Person.first(100)
   end
@@ -9,16 +8,16 @@ class PeopleController < ApplicationController
     total = @people.count
     men = @people.where(p02: 1).count
     women = total - men
-    @men_and_women = {
-      men: { amount: men, percentage: (men.to_f / total).round(4) },
-      women: { amount: women, percentage: (women.to_f / total).round(4) },
+    @men_and_women = [{
+      men: { amount: men, percentage: (men.to_f / total).round(4) * 100 },
+      women: { amount: women, percentage: (women.to_f / total).round(4) * 100 },
       total: total
-    }
+    }]
 
     render json: @men_and_women
   end
 
-  def alphabet_people
+  def alphabets
     @people = Person.all
     total = @people.count
     alphabets = @people.where(p07: 1).count

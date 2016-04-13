@@ -98,11 +98,6 @@
            .attr("fill", "#12AD2A")
            .attr("stroke", "white")
            .attr("stroke-width", padding)
-         .append("text")
-           .text(function (d) { return d.values.Neutral } )
-           .attr("font-size", "20px")
-           .attr("text-anchor", "middle")
-           .attr("color", "white");
     }
 
     function drawYellowRectangle(svg, data, barHeight, padding, x) {
@@ -117,17 +112,6 @@
            .attr("fill", "#FFD933")
            .attr("stroke", "white")
            .attr("stroke-width", padding)
-           .append("text")
-           .text(function (d) { return d.values.Neutral } )
-           .attr("font-size", "20px")
-           .attr("text-anchor", "middle")
-           .attr("color", "white");
-
-      // rect.selectAll("text")
-      //     .data(data)
-      //     .enter()
-      //        .text(function (d) { return d.values.Neutral } )
-      //        .attr("text-anchor", "middle");
     }
 
     function drawRedRectangle(svg, data, barHeight, padding, x) {

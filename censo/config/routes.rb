@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
+  match '*any' => 'application#options', via: [:options]
+
   resources :people do
     member do
       get :person
     end
     collection do
       get :men_and_women
-      get :alphabet_people
+      get :alphabets
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

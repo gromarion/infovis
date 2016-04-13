@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Census</title>
+  </head>
+  <body>
+    <h1>Visualización de la Información</h1>
+    <h3>Trabajo Práctico nro. 3</h3>
+    <p>Descripción: Esta página muestra estadísticas obtenidas a partir del censo del año 2010 en Argentina.</p>
+    <br>
+    <script>
+    getJSON('http://localhost:3000/people/men_and_women').then(
+      function(returnedData) {
+        showCensusData(returnedData);
+      }
+    )
+
+    function getJSON(url) {
+      return $.getJSON(url).then(
+        function(jsonResponse, msg, fullResponse) {
+          return jsonResponse;
+        }
+      );
+    }
+
+    function showCensusData(data) {
+      var svg = d3.select("body").append("svg");
+
+      var width = 6000, barHeight = 30;
+      var padding = 3;
+
+      var x = d3.scale.linear().range([0, width]);
+
+      svg.attr("width", width).attr("height", barHeight);
+
+      x.domain([0, 1000]);
+      drawGreenRectangle(svg, data, barHeight, padding, x);
+      drawRedRectangle(svg, data, barHeight, padding, x);
+    }
+
+    function drawGreenRectangle(svg, data, barHeight, padding, x) {
+      console.log(data)
+      svg.selectAll("rect1")
+         .data(data)
+         .enter()
+         .append("rect")
+           .attr("width", function(d) { return x(d.men.percentage); })
+           .attr("height", barHeight)
+           .attr("x", 350)
+           .attr("y", function(d, i) { return barHeight * i; } )
+           .attr("fill", "#12AD2A")
+           .attr("stroke", "white")
+           .attr("stroke-width", padding)
+    }
+
+    function drawRedRectangle(svg, data, barHeight, padding, x) {
+      var rect = svg.selectAll("rect2")
+         .data(data)
+         .enter()
+         .append("rect")
+           .attr("width", function(d) { return x(d.women.percentage); })
+           .attr("height", barHeight)
+           .attr("x", function (d) { return 350 + x(d.men.percentage); } )
+           .attr("y", function(d, i) { return barHeight * i; } )
+           .attr("fill", "#FF3E33")
+           .attr("stroke", "white")
+           .attr("stroke-width", padding)
+    }
+    </script>
+  </body>
+</html>
