@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     member do
       get :person
     end
+    collection do
+      get :men_and_women
+      get :alphabet_people
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
