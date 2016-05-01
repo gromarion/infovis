@@ -28,43 +28,17 @@
     }
 
     function showCensusData(data) {
-      var svg = d3.select("body").append("svg");
+      var sizeScale = d3.scale.linear().domain([1, 30]).range([10, 60]);
+      var colorScale = d3.scale.linear().domain([1, 1000]).range(["#FF0000", "#00FF00"]);
 
-      var width = 6000, barHeight = 30;
-      var padding = 3;
-
-      var x = d3.scale.linear().range([0, width]);
-
-      svg.attr("width", width).attr("height", barHeight);
-
-      x.domain([0, 1000]);
-
-      svg.selectAll("text")
-      .data(data)
-      .enter()
-      .append("text")
-          .attr("x", function(d) { return 10; })
-          .attr("y", function(d, i) { return i * barHeight + barHeight / 2; })
-          .attr("font-family", "sans-serif")
-          .attr("font-weight", "bold")
-          .text(function(d) { return d.title; });
-
-      drawRectangle(svg, data, barHeight, padding, x, 0, "#12AD2A");
-      drawRectangle(svg, data, barHeight, padding, x, x(data[0].info.percentage), "#FF3E33");
-    }
-
-    function drawRectangle(svg, data, barHeight, padding, x, offset, color) {
-      var rect = svg.selectAll("rect2")
-         .data(data)
-         .enter()
-         .append("rect")
-           .attr("width", function(d) { return x(d.info.percentage); })
-           .attr("height", barHeight)
-           .attr("x", function (d) { return 100 + offset; } )
-           .attr("y", function(d, i) { return barHeight * i; } )
-           .attr("fill", color)
-           .attr("stroke", "white")
-           .attr("stroke-width", padding)
+      d3.selectAll("men_vs_women")
+        .selectAll("span")
+        .data(data)
+        .enter()
+        .append("span")
+        .text(function(d){ return d.info.percentage + " "; })
+        .style("font-size", function(d){ return sizeScale(d.info.percentage) + "px"; console.log(d.info.percentage); })
+        .style("color", function(d){ return colorScale(d.info.percentage); });
     }
     </script>
   </body>

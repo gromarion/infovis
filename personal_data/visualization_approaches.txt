@@ -1,0 +1,61 @@
+EJEMPLO DATOS:
+==============
+{
+  "name": "RUN ON: 01/01/70 05:54 AM",
+  "activity_id": "9013000000020208976450026780555001672957",
+  "activity_type": "RUN",
+  "app_id": "NIKEPLUSRUNNING",
+  "time_zone": "-03:00",
+  "time_zone_id": "GMT-03:00",
+  "dst_offset": "00:00",
+  "start_time_utc": "1970-01-01T05:54:23-03:00",
+  "status": "complete",
+  "active_time": 0,
+  "gps": false,
+  "heartrate": false,
+  "device_type": "IPOD",
+  "tags": {},
+  "metrics": {
+    "average_heart_rate": 0.0,
+    "minimum_heart_rate": 0.0,
+    "maximum_heart_rate": 0.0,
+    "duration": 2743381,
+    "calories": 461,
+    "fuel": 1347,
+    "steps": 7343,
+    "distance": 6.462100028991699
+  }
+}
+
+MÉTODOS DE VISUALIZACIÓN
+========================
+* Mostrar momentos del día en los que corrí, y sacar conclusiones de cuándo es que me gusta correr más:
+  "http://media.runmum.com/wp-content/uploads/sites/16/2013/09/august-dump.jpg"
+
+* Mostrar en un gráfico de porcentajes (torta NO, barras, etc.) la distribución de días de la semana en los
+  que prefiero correr.
+
+* Gráfico que muestre la evolución del ritmo promedio de mis carreras.
+
+* "                              " de las distancias corridas.
+
+* "                                      " calorías quemadas.
+
+* Visualizar con un mapa de calor o similar los lugares en los que prefiero para correr o los lugares donde
+  corrí alguna vez.
+
+* Mostrar la mayor distancia que haya registrado, y sus detalles:
+  - Distancia (obvio)
+  - Tiempo
+  - Ritmo promedio
+  - Fecha
+  - Calorías quemadas
+
+* Cuántas carreras consecutivas hice!!
+* Cuánto fue el máximo tiempo inactivo, y desde dónde hasta donde.
+* Identificar la fecha en la que me lesioné (17/08/2013), con un punto colorado en el gráfico.
+
+* Cantidad total de kilómetros corridos
+* "               " calorías quemadas
+* Sumatoria de todos las duraciones de las carreras
+* Cantidad de carreras
