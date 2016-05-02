@@ -2,6 +2,8 @@ $(document).ready(averagePaceEvolution);
 $(document).ready(distancesEvolution);
 $(document).ready(timesOfDay);
 $(document).ready(calories);
+// $(document).ready(google.maps.event.addDomListener(window, 'load', initialize))
+$(document).ready(initialize);
 
 function draw() {
     distancesEvolution;
@@ -431,5 +433,64 @@ function calories() {
         transition: {
             duration: 2000
         }
+    });
+}
+
+function initialize() {
+    var mapProp = {
+        center: new google.maps.LatLng(-35.159951, -57.929591),
+        zoom: 7,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+    var rosedalMarker = new google.maps.Marker({
+        position: new google.maps.LatLng(-34.571072, -58.417238),
+        map: map,
+        title: 'El Rosedal'
+    });
+    
+    var lagosDePalermoMarker = new google.maps.Marker({
+        position: new google.maps.LatLng(-34.558604, -58.432069),
+        map: map,
+        title: 'Lagos De Palermo'
+    });
+    
+    var sanBernardoMarker = new google.maps.Marker({
+        position: new google.maps.LatLng(-36.686284, -56.676972),
+        map: map,
+        title: 'San Bernardo'
+    });
+    
+    var vicenteLopezMarker = new google.maps.Marker({
+        position: new google.maps.LatLng(-34.526051, -58.468890),
+        map: map,
+        title: 'Vicente Lopez'
+    });
+
+    var rosedalInfoWindow = new google.maps.InfoWindow({
+      content: "El Rosedal"
+    });
+    var lagosDePalermoInfoWindow = new google.maps.InfoWindow({
+      content: "Lagos De Palermo"
+    });
+    var sanBernardoInfoWindow = new google.maps.InfoWindow({
+      content: "San Bernardo"
+    });
+    var vicenteLopezInfoWindow = new google.maps.InfoWindow({
+      content: "Vicente Lopez"
+    });
+
+    google.maps.event.addListener(rosedalMarker, 'click', function() {
+        rosedalInfoWindow.open(map, rosedalMarker);
+    });
+    google.maps.event.addListener(lagosDePalermoMarker, 'click', function() {
+        lagosDePalermoInfoWindow.open(map, lagosDePalermoMarker);
+    });
+    google.maps.event.addListener(sanBernardoMarker, 'click', function() {
+        sanBernardoInfoWindow.open(map, sanBernardoMarker);
+    });
+    google.maps.event.addListener(vicenteLopezMarker, 'click', function() {
+        vicenteLopezInfoWindow.open(map, vicenteLopezMarker);
     });
 }
