@@ -153,7 +153,7 @@ function distancesEvolution() {
                     }
                 },
                 transition: {
-                    duration: 1000
+                    duration: 2000
                 }
         }
     );
@@ -298,7 +298,7 @@ function averagePaceEvolution() {
                     }
                 },
                 transition: {
-                    duration: 1000
+                    duration: 2000
                 }
         }
     );
@@ -429,7 +429,7 @@ function calories() {
             }
         },
         transition: {
-            duration: 1000
+            duration: 2000
         }
     });
 }
