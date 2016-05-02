@@ -29,19 +29,19 @@ EJEMPLO DATOS:
 
 MÉTODOS DE VISUALIZACIÓN
 ========================
-* Mostrar momentos del día en los que corrí, y sacar conclusiones de cuándo es que me gusta correr más:
+DONE * Mostrar momentos del día en los que corrí, y sacar conclusiones de cuándo es que me gusta correr más:
   "http://media.runmum.com/wp-content/uploads/sites/16/2013/09/august-dump.jpg"
 
-* Mostrar en un gráfico de porcentajes (torta NO, barras, etc.) la distribución de días de la semana en los
+DONE * Mostrar en un gráfico de porcentajes (torta NO, barras, etc.) la distribución de días de la semana en los
   que prefiero correr.
 
-* Gráfico que muestre la evolución del ritmo promedio de mis carreras.
+DONE * Gráfico que muestre la evolución del ritmo promedio de mis carreras.
 
-* "                              " de las distancias corridas.
+DONE * "                              " de las distancias corridas.
 
-* "                                      " calorías quemadas.
+DONE * "                                      " calorías quemadas.
 
-* Visualizar con un mapa de calor o similar los lugares en los que prefiero para correr o los lugares donde
+DONE * Visualizar con un mapa de calor o similar los lugares en los que prefiero para correr o los lugares donde
   corrí alguna vez.
 
 * Mostrar la mayor distancia que haya registrado, y sus detalles:
@@ -55,7 +55,7 @@ MÉTODOS DE VISUALIZACIÓN
 * Cuánto fue el máximo tiempo inactivo, y desde dónde hasta donde.
 * Identificar la fecha en la que me lesioné (17/08/2013), con un punto colorado en el gráfico.
 
-* Cantidad total de kilómetros corridos
-* "               " calorías quemadas
-* Sumatoria de todos las duraciones de las carreras
-* Cantidad de carreras
+DONE * Cantidad total de kilómetros corridos
+DONE * "               " calorías quemadas
+DONE * Sumatoria de todos las duraciones de las carreras
+DONE * Cantidad de carreras

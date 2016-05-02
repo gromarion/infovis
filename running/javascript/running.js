@@ -153,6 +153,8 @@ function distancesEvolution() {
                             count: 254
                         }
                     }
+                }, zoom: {
+                    enabled: true
                 },
                 transition: {
                     duration: 2000
@@ -298,6 +300,8 @@ function averagePaceEvolution() {
                             count: 254
                         }
                     }
+                }, zoom: {
+                    enabled: true
                 },
                 transition: {
                     duration: 2000
@@ -313,24 +317,27 @@ function timesOfDay() {
             color: {
                 pattern: ['#FABF62', '#ACB6DD']
             },
-            data:
-                {
-                    x: 'x',
-                    columns: [
-                        ["x", "Morning", "Afternoon", "Evening"],
-                        ["value", 22.17, 71.98, 5.85]
-                    ],
-                    type: "bar",
-                    color: function(inColor, data) {
-                        var colors = ['#ADD8E6', '#FABF62', '#003366'];
-                        if(data.index !== undefined) {
-                            return colors[data.index];
-                        }
+            data: {
+                x: 'x',
+                columns: [
+                    ["x", "Morning", "Afternoon", "Evening"],
+                    ["value", 0.2217, 0.7198, 0.0585]
+                ],
+                type: "bar",
+                color: function(inColor, data) {
+                    var colors = ['#ADD8E6', '#FABF62', '#003366'];
+                    if(data.index !== undefined) {
+                        return colors[data.index];
+                    }
 
-                        return inColor;
-                    },
-                    labels: true
+                    return inColor;
                 },
+                labels: {
+                    format: {
+                        value: d3.format("%")
+                    }
+                }
+            },
             axis: {
                 rotated: true,
                 x: {
@@ -429,6 +436,8 @@ function calories() {
                     count: 254
                 }
             }
+        }, zoom: {
+            enabled: true
         },
         transition: {
             duration: 2000
@@ -443,29 +452,30 @@ function initialize() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-
     var rosedalMarker = new google.maps.Marker({
         position: new google.maps.LatLng(-34.571072, -58.417238),
         map: map,
         title: 'El Rosedal'
     });
-    
     var lagosDePalermoMarker = new google.maps.Marker({
         position: new google.maps.LatLng(-34.558604, -58.432069),
         map: map,
         title: 'Lagos De Palermo'
     });
-    
     var sanBernardoMarker = new google.maps.Marker({
         position: new google.maps.LatLng(-36.686284, -56.676972),
         map: map,
         title: 'San Bernardo'
     });
-    
     var vicenteLopezMarker = new google.maps.Marker({
         position: new google.maps.LatLng(-34.526051, -58.468890),
         map: map,
         title: 'Vicente Lopez'
+    });
+    var plazaDelEcuadorMarker = new google.maps.Marker({
+        position: new google.maps.LatLng(-34.5651917,-58.4210413),
+        map: map,
+        title: 'Plaza del Ecuador'
     });
 
     var rosedalInfoWindow = new google.maps.InfoWindow({
@@ -480,6 +490,9 @@ function initialize() {
     var vicenteLopezInfoWindow = new google.maps.InfoWindow({
       content: "Vicente Lopez"
     });
+    var plazaDelEcuadorInfoWindow = new google.maps.InfoWindow({
+      content: "Plaza del Ecuador"
+    });
 
     google.maps.event.addListener(rosedalMarker, 'click', function() {
         rosedalInfoWindow.open(map, rosedalMarker);
@@ -490,7 +503,7 @@ function initialize() {
     google.maps.event.addListener(sanBernardoMarker, 'click', function() {
         sanBernardoInfoWindow.open(map, sanBernardoMarker);
     });
-    google.maps.event.addListener(vicenteLopezMarker, 'click', function() {
-        vicenteLopezInfoWindow.open(map, vicenteLopezMarker);
+    google.maps.event.addListener(plazaDelEcuadorMarker, 'click', function() {
+        plazaDelEcuadorInfoWindow.open(map, plazaDelEcuadorMarker);
     });
 }
