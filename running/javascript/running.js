@@ -1,14 +1,16 @@
-$(document).ready(averagePaceEvolution);
-$(document).ready(distancesEvolution);
-$(document).ready(timesOfDay);
-$(document).ready(calories);
-// $(document).ready(google.maps.event.addDomListener(window, 'load', initialize))
-$(document).ready(initialize);
+var totalCalories = 174132;
+var totalKilometers = 2500.97;
+var totalHours = 257;
+var totalMinutes = 57;
+var totalRuns = 254;
 
-function draw() {
-    distancesEvolution;
-    // averagePaceEvolution;
-}
+$(document).ready(function(){
+    averagePaceEvolution();
+    distancesEvolution();
+    timesOfDay();
+    calories();
+    initializeGoogleMap();
+});
 
 function distancesEvolution() {
     var maxDistanceDate = new Date("07-29-12");
@@ -445,7 +447,7 @@ function calories() {
     });
 }
 
-function initialize() {
+function initializeGoogleMap() {
     var mapProp = {
         center: new google.maps.LatLng(-35.159951, -57.929591),
         zoom: 7,
