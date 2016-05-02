@@ -148,6 +148,9 @@ function distancesEvolution() {
                             format: '%d-%m-%y'
                         }
                     }
+                },
+                transition: {
+                    duration: 1000
                 }
         }
     );
@@ -289,6 +292,9 @@ function averagePaceEvolution() {
                             format: '%d-%m-%y'
                         }
                     }
+                },
+                transition: {
+                    duration: 1000
                 }
         }
     );
@@ -317,20 +323,23 @@ function timesOfDay() {
                         }
 
                         return inColor;
-                    }
+                    },
+                    labels: true
                 },
-            axis:
-                {
-                    rotated: true,
-                    x: {
-                        type: 'category'
-                    }
+            axis: {
+                rotated: true,
+                x: {
+                    type: 'category'
+                }
             },
             tooltip: {
                 grouped: false
             },
             legend: {
                 show: false
+            },
+            transition: {
+                duration: 1000
             }
         }
     );
