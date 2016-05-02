@@ -333,6 +333,9 @@ function timesOfDay() {
                 rotated: true,
                 x: {
                     type: 'category'
+                },
+                y: {
+                    show: false
                 }
             },
             tooltip: {
