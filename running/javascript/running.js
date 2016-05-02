@@ -147,7 +147,8 @@ function distancesEvolution() {
                     x: {
                         type: 'timeseries',
                         tick: {
-                            format: '%d-%m-%y'
+                            format: '%m-%y',
+                            count: 254
                         }
                     }
                 },
@@ -291,7 +292,8 @@ function averagePaceEvolution() {
                     x: {
                         type: 'timeseries',
                         tick: {
-                            format: '%d-%m-%y'
+                            format: '%m-%y',
+                            count: 254
                         }
                     }
                 },
@@ -418,7 +420,8 @@ function calories() {
             x: {
                 type: 'timeseries',
                 tick: {
-                    format: '%d-%m-%y'
+                    format: '%m-%y',
+                    count: 254
                 }
             }
         },
