@@ -221,7 +221,7 @@ function averagePaceEvolution() {
                     x: {
                         type: 'timeseries',
                         tick: {
-                            format: '%m-%y',
+                            format: '%d/%m/%y',
                             count: 254
                         }
                     }
@@ -315,7 +315,7 @@ function calories() {
             x: {
                 type: 'timeseries',
                 tick: {
-                    format: '%m-%y',
+                    format: '%d/%m/%y',
                     count: 254
                 }
             }
