@@ -5,6 +5,9 @@ var totalMinutes = 57;
 var totalRuns = 253;
 var generalStep = 10;
 var caloriesStep = 1000;
+var maxDistanceDate = new Date("07-29-12");
+var lesionPointDate = new Date("08-17-13");
+var firstComebackAfterLesionDate = new Date("10-08-13");
 
 $(document).ready(function(){
     averagePaceEvolution();
@@ -20,8 +23,6 @@ $(document).ready(function(){
 });
 
 function distancesEvolution() {
-    var maxDistanceDate = new Date("07-29-12");
-    var lesionPointDate = new Date("08-17-13");
     c3.generate(
         {
             bindto: '#distances',
@@ -131,7 +132,6 @@ function distancesEvolution() {
 }
 
 function averagePaceEvolution() {
-    var firstComebackAfterLesionDate = new Date("10-08-13");
     c3.generate(
         {
             bindto: '#averagePaces',
@@ -309,7 +309,22 @@ function calories() {
                  945, 955, 265, 256, 978, 869, 882, 871, 259, 100, 822, 243, 237, 253, 255, 903, 244,
                  61, 264, 393, 405, 507, 332, 202, 357, 388, 415]
             ],
-            type: "bar"
+            type: "bar",
+            color: function(inColor, data) {
+                if (typeof data.x != 'undefined' &&
+                    data.x.getDate() == maxDistanceDate.getDate() &&
+                    data.x.getMonth() == maxDistanceDate.getMonth() &&
+                    data.x.getYear() == maxDistanceDate.getYear()) {
+                    return "#00CD00";
+                } else if (typeof data.x != 'undefined' &&
+                    data.x.getDate() == firstComebackAfterLesionDate.getDate() &&
+                    data.x.getMonth() == firstComebackAfterLesionDate.getMonth() &&
+                    data.x.getYear() == firstComebackAfterLesionDate.getYear()) {
+                    return "#CD0000";
+                } else {
+                    return inColor;
+                }
+            },
         },
         axis: {
             x: {
