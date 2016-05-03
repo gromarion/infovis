@@ -1,8 +1,10 @@
 var totalCalories = 174132;
-var totalKilometers = 2500.97;
+var totalKilometers = 2500;
 var totalHours = 257;
 var totalMinutes = 57;
 var totalRuns = 254;
+var generalStep = 10;
+var caloriesStep = 1000;
 
 $(document).ready(function(){
     averagePaceEvolution();
@@ -10,6 +12,11 @@ $(document).ready(function(){
     timesOfDay();
     calories();
     initializeGoogleMap();
+    increaseNumber("totalRuns", " Runs", totalRuns, 0, generalStep);
+    increaseNumber("totalKilometers", " Km", totalKilometers, 0, generalStep);
+    increaseNumber("totalHours", " Hs,", totalHours, 0, generalStep);
+    increaseNumber("totalMinutes", " Min", totalMinutes, 0, generalStep);
+    increaseNumber("totalCalories", " Cal", totalCalories, 0, caloriesStep);
 });
 
 function distancesEvolution() {
@@ -365,6 +372,22 @@ function dateAxisValues() {
      "2013-08-16", "2013-08-16", "2013-08-17", "2013-10-08", "2013-10-08", "2014-05-03",
      "2014-05-07", "2014-05-10", "2014-05-16", "2014-08-02", "2014-08-10", "2014-08-10",
      "2014-08-17", "2014-08-23", "2016-04-10"];
+}
+
+function increaseNumber(id, text, numberLimit, miliseconds, step) {
+    var count = 0;
+    var interval = setInterval(
+        function(){
+            if (count + step < numberLimit) {
+                count += step;
+            } else {
+                count++;
+            }
+            document.getElementById(id).innerHTML = count + text;
+            if (count === numberLimit) {
+                clearInterval(interval);
+            }
+    }, miliseconds);
 }
 
 function initializeGoogleMap() {
