@@ -101,7 +101,7 @@ function distancesEvolution() {
                             data.x.getDate() == maxDistanceDate.getDate() &&
                             data.x.getMonth() == maxDistanceDate.getMonth() &&
                             data.x.getYear() == maxDistanceDate.getYear()) {
-                            return "#00CD00";
+                            return "green";
                         } else if (typeof data.x != 'undefined' &&
                             data.x.getDate() == lesionPointDate.getDate() &&
                             data.x.getMonth() == lesionPointDate.getMonth() &&
@@ -315,7 +315,7 @@ function calories() {
                     data.x.getDate() == maxDistanceDate.getDate() &&
                     data.x.getMonth() == maxDistanceDate.getMonth() &&
                     data.x.getYear() == maxDistanceDate.getYear()) {
-                    return "#00CD00";
+                    return "green";
                 } else if (typeof data.x != 'undefined' &&
                     data.x.getDate() == firstComebackAfterLesionDate.getDate() &&
                     data.x.getMonth() == firstComebackAfterLesionDate.getMonth() &&
