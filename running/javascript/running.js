@@ -113,6 +113,11 @@ function distancesEvolution() {
                     },
                     type: "bar"
                 },
+                grid: {
+                    y: {
+                        show: true
+                    }
+                },
                 axis: {
                     x: {
                         type: 'timeseries',
@@ -140,7 +145,7 @@ function averagePaceEvolution() {
                     x: "x",
                     columns: [
                         dateAxisValues(),
-                        ["Average Paces", 5.249406563319236, 4.920230936132195, 4.942975225805799,
+                        ["Average Pace", 5.249406563319236, 4.920230936132195, 4.942975225805799,
                          5.710846015945257, 5.617396242257837, 5.587942228772666, 5.2854122036691775,
                          5.939913180365406, 6.075050098094144, 6.039929032144067, 5.459884588619151,
                          5.3629898018651945, 5.650577302226771, 6.5943484366874845, 6.314766718465573,
@@ -214,8 +219,15 @@ function averagePaceEvolution() {
                         } else {
                             return inColor;
                         }
-                    },
-                    type: "bar"
+                    }
+                },
+                point: {
+                    show: false
+                },
+                grid: {
+                    y: {
+                        show: true
+                    }
                 },
                 axis: {
                     x: {
@@ -308,23 +320,15 @@ function calories() {
                  625, 917, 818, 256, 241, 944, 920, 259, 253, 250, 245, 254, 259, 817, 876, 253, 216,
                  945, 955, 265, 256, 978, 869, 882, 871, 259, 100, 822, 243, 237, 253, 255, 903, 244,
                  61, 264, 393, 405, 507, 332, 202, 357, 388, 415]
-            ],
-            type: "bar",
-            color: function(inColor, data) {
-                if (typeof data.x != 'undefined' &&
-                    data.x.getDate() == maxDistanceDate.getDate() &&
-                    data.x.getMonth() == maxDistanceDate.getMonth() &&
-                    data.x.getYear() == maxDistanceDate.getYear()) {
-                    return "green";
-                } else if (typeof data.x != 'undefined' &&
-                    data.x.getDate() == firstComebackAfterLesionDate.getDate() &&
-                    data.x.getMonth() == firstComebackAfterLesionDate.getMonth() &&
-                    data.x.getYear() == firstComebackAfterLesionDate.getYear()) {
-                    return "#CD0000";
-                } else {
-                    return inColor;
-                }
-            },
+            ]
+        },
+        point: {
+            show: false
+        },
+        grid: {
+            y: {
+                show: true
+            }
         },
         axis: {
             x: {
